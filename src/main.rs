@@ -23,31 +23,15 @@ use std::io::Read;
 use std::error::Error;
 use std::io;
 use std::process::exit;
-use crate::algorithms::data_structure::stack::Stack;
+use algorithms::data_structure::stack::Stack;
+use algorithms::data_structure::queue;
+use crate::algorithms::data_structure::queue::Queue;
 
 
 fn main() {
-    testStack();
-    let filename = "./1.txt";
+    test_stack();
 
-    match read_username_from_file() {
-        Ok(f) => {
-            println!("ok very goodsdfsdf")
-        }
-        Err(ex) => {
-            println!("{}", ex.description());
-            exit(1);
-        }
-    }
-
-    match test_open_file(filename) {
-        Ok(f) => {
-            println!("ok very good")
-        }
-        Err(ex) => {
-            println!("{}", ex.description())
-        }
-    }
+    test_queue();
 
 
 //    let mut f = File::open(filename).unwrap();
@@ -87,7 +71,7 @@ fn read_username_from_file() -> Result<String, Box<Error>> {
     Ok(s)
 }
 
-fn testStack() {
+fn test_stack() {
     #[derive(PartialEq, Eq, Debug)]
     struct TestStruct {
         a: i32,
@@ -107,4 +91,24 @@ fn testStack() {
     assert_eq!(s.pop(), Some(&b));
     assert_eq!(s.pop(), Some(&a));
     assert_eq!(s.pop(), None);
+}
+
+fn test_queue(){
+
+    let mut q=Queue::new();
+
+    q.push(1);
+    q.push(2);
+
+    println!("{:?}",q);
+
+    q.pop();
+
+    println!("{:?}",q);
+
+    let item=q.pop();
+
+    println!("{:?}",item);
+
+    q.pop();
 }
