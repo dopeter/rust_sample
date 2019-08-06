@@ -24,14 +24,18 @@ use std::error::Error;
 use std::io;
 use std::process::exit;
 use algorithms::data_structure::stack::Stack;
-use algorithms::data_structure::queue;
-use crate::algorithms::data_structure::queue::Queue;
+use algorithms::data_structure::queue::Queue;
+use algorithms::data_structure::binary_search::*;
+use std::borrow::BorrowMut;
+
 
 
 fn main() {
     test_stack();
 
     test_queue();
+
+    test_binary_search();
 
 
 //    let mut f = File::open(filename).unwrap();
@@ -111,4 +115,31 @@ fn test_queue(){
     println!("{:?}",item);
 
     q.pop();
+}
+
+fn test_binary_search(){
+
+    let mut root=Node::<i32,i32>::new(3,4);
+
+    root.insert(2,3);
+    root.insert(4,6);
+    root.insert(5,5);
+    root.insert(6,6);
+    root.insert(1,8);
+
+    if let Some(ref right)=root.right{
+        assert_eq!(right.value,6);
+
+        if let Some(ref right)=right.right{
+            assert_eq!(right.value,5);
+        }
+    }
+
+    println!("Pre Order traversal");
+    root.pre_order();
+    println!("In Order traversal");
+    root.in_order();
+    println!("Pos Order traversal");
+    root.pos_order();
+
 }
