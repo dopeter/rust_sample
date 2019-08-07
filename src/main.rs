@@ -27,7 +27,8 @@ use algorithms::data_structure::stack::Stack;
 use algorithms::data_structure::queue::Queue;
 use algorithms::data_structure::binary_search::*;
 use std::borrow::BorrowMut;
-
+use algorithms::data_structure::priority_queue;
+use algorithms::data_structure::priority_queue::*;
 
 
 fn main() {
@@ -37,6 +38,7 @@ fn main() {
 
     test_binary_search();
 
+    priority_queue_test_aggregate();
 
 //    let mut f = File::open(filename).unwrap();
 
