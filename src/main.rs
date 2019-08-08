@@ -30,6 +30,7 @@ use std::borrow::BorrowMut;
 use algorithms::data_structure::priority_queue;
 use algorithms::data_structure::priority_queue::*;
 use algorithms::data_structure::list::*;
+use algorithms::data_structure::simply_graph::*;
 
 
 fn main() {
@@ -42,6 +43,8 @@ fn main() {
     priority_queue_test_aggregate();
 
     test_list();
+
+    test_simply_graph();
 
 //    let mut f = File::open(filename).unwrap();
 
